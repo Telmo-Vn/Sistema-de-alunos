@@ -24,8 +24,7 @@ while True:
 
     match escolha:
         case 1:
-            while True:
-                    
+            while True:    
                 nome = str(input("Digite o Nome do Aluno: "))
                 idade = int(input("Digite a Idade do Aluno: "))
                 nota = float(input("Digite a Nota do Aluno: "))
@@ -94,7 +93,26 @@ while True:
             else:
                 print("Aluno não encontrado")
 
-                
+
+        case 5:
+            if not lista_aluno:
+                print("Nenhum aluno cadastrado")
+                continue
+            procura_aluno = str(input("Digite o nome do Aluno que deseja remover: "))
+            encontrou = False
+
+            for alunos in lista_aluno:
+                if procura_aluno == alunos['nome']:
+                    encontrou = True
+                    break
+
+            if encontrou:
+                lista_aluno.remove(alunos)
+                print(f'Aluno: {procura_aluno} Removido com sucesso')
+            else:
+                print("Aluno não encontrado")
+
+             
     if escolha == 6:
         break
     elif escolha > 6 or escolha <1 :
