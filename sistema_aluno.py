@@ -45,7 +45,14 @@ while True:
 
                         
         case 2:
-            print(lista_aluno)
+            contador = 0
+            for alunos in lista_aluno:
+                contador = contador + 1
+                print(f"Aluno {contador}\n {alunos['nome']}\n Idade {alunos['idade']}\n Nota {alunos['nota']}\n")
+                
+
+
+
             
                 
     if escolha == 6:
