@@ -1,5 +1,9 @@
 
 
+
+
+
+
 lista_aluno = []
 while True:
     print("1 - Cadastro aluno\n2 - Lista alunos\n3 - Buscar aluno\n4 - Ver situação\n5 - Remover aluno\n6 - Sair")
@@ -49,11 +53,24 @@ while True:
             for alunos in lista_aluno:
                 contador = contador + 1
                 print(f"Aluno {contador}\n {alunos['nome']}\n Idade {alunos['idade']}\n Nota {alunos['nota']}\n")
-                
 
 
+        case 3:
+            if not lista_aluno:
+                print("Nenhum aluno cadastrado")
+                continue
+            procura_aluno = str(input("Digite o nome do Aluno: "))
+            encontrou = False
+            for alunos in lista_aluno:
+                if procura_aluno == alunos['nome']:
+                    encontrou = True
+                    break
 
-            
+            if encontrou:
+                print(f"Aluno encontrado!:\n {alunos['nome']}\n Idade {alunos['idade']}\n Nota {alunos['nota']}")
+            else:
+                print("Aluno não encontrado")
+
                 
     if escolha == 6:
         break
