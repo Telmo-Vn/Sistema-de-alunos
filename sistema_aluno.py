@@ -1,8 +1,11 @@
-
-
-
-
-
+def situação_aluno(notas):
+    if notas >= 7:
+        return "Aprovado"
+    elif notas >=5:
+        return "Recuperação"
+    else:
+        return "Reprovado"
+        
 
 lista_aluno = []
 while True:
@@ -21,16 +24,16 @@ while True:
 
     match escolha:
         case 1:
-                while True:
+            while True:
                     
-                    nome = str(input("Digite o Nome do Aluno: "))
-                    idade = int(input("Digite a Idade do Aluno: "))
-                    nota = float(input("Digite a Nota do Aluno: "))
+                nome = str(input("Digite o Nome do Aluno: "))
+                idade = int(input("Digite a Idade do Aluno: "))
+                nota = float(input("Digite a Nota do Aluno: "))
                     
-                    resposta = str((input)("Deseja cadastrar mais algun aluno [S/N]: "))
-                    
+                resposta = str((input)("Deseja cadastrar mais algun aluno [S/N]: "))
 
-                    lista_aluno.append({
+                    
+                lista_aluno.append({
 
                             'nome':nome,
                             'idade':idade,
@@ -39,11 +42,11 @@ while True:
                     })
  
                     
-                    if resposta == 'n' or resposta == 'N':
+                if resposta == 'n' or resposta == 'N':
                         break
-                    elif resposta == 's' or resposta == "S":
+                elif resposta == 's' or resposta == "S":
                         continue
-                    else:
+                else:
                         print("Opção invalida")
                         break
 
@@ -68,6 +71,26 @@ while True:
 
             if encontrou:
                 print(f"Aluno encontrado!:\n {alunos['nome']}\n Idade {alunos['idade']}\n Nota {alunos['nota']}")
+            else:
+                print("Aluno não encontrado")
+
+
+        case 4:
+            if not lista_aluno:
+                print("Nenhum aluno cadastrado")
+                continue
+            procura_aluno = str(input("Digite o nome do Aluno: "))
+            encontrou = False
+
+            for alunos in lista_aluno:
+                if procura_aluno == alunos['nome']:
+                    encontrou = True
+                    break
+
+            if encontrou:
+                situação = situação_aluno(alunos['nota'])
+                print(f"O aluno {procura_aluno} está: {situação}")
+                
             else:
                 print("Aluno não encontrado")
 
