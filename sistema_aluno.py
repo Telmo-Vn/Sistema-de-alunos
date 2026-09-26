@@ -1,25 +1,43 @@
 def situação_aluno(notas):
     if notas >= 7:
         return "Aprovado"
-    elif notas >=5:
+    elif notas >= 5:
         return "Recuperação"
     else:
         return "Reprovado"
+
+
+def menu():
+    print("1 - Cadastro aluno\n2 - Lista alunos\n3 - Buscar aluno\n4 - Ver situação\n5 - Remover aluno\n6 - Sair")
+
+
+def Valor_erro():
+    while True:
+        valor = input("Digite uma das opções válidas: ")
+
+        try:
+            valor = int(valor)
+
+            if valor >= 1 and valor <= 6:
+                return valor
+
+            print("Escolha inválida")
+
+        except ValueError:
+            print("Escolha inválida")
+
         
 
 lista_aluno = []
 while True:
-    print("1 - Cadastro aluno\n2 - Lista alunos\n3 - Buscar aluno\n4 - Ver situação\n5 - Remover aluno\n6 - Sair")
     
-
+    menu()
     
     while True:
-        try :
-            escolha = int(input(""))
-            break
-        except ValueError:
-            print("Escolha invalida. Por favor escolha uma das opçãoes validas")
-            print("1 - Cadastro aluno\n2 - Lista alunos\n3 - Buscar aluno\n4 - Ver situação\n5 - Remover aluno\n6 - Sair")
+
+        escolha = Valor_erro()
+        break
+
     
 
     match escolha:
